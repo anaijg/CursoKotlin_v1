@@ -1,48 +1,106 @@
 
-This is a task description file.
-Its content will be displayed to a learner
-in the **Task Description** window.
+La salida estándar es la operación básica que muestra información en un dispositivo. No todos los programas generan dicha salida. De forma predeterminada, la salida estándar muestra los datos en la pantalla, pero es posible redirigirlos a un archivo.
 
-It supports both Markdown and HTML.
-To toggle the format, you can rename **task.md**
-to **task.html**, or vice versa.
-The default task description format can be changed
-in **Preferences | Tools | Education**,
-but this will not affect any existing task description files.
 
-The following features are available in
-**task.md/task.html** which are specific to the JetBrains Academy plugin:
 
-- Hints can be added anywhere in the task text.
-  Type "hint" and press Tab.
-  Hints should be added to an empty line in the task text.
-  In hints you can use both HTML and Markdown.
-<div class="hint">
+Impresión de texto
+Kotlin tiene dos funciones que envían datos a la salida estándar: `println` y `print`.
 
-Text of your hint
+La función `println` ( print line ) muestra una cadena seguida de una nueva línea en la pantalla. Por ejemplo, el fragmento de código que aparece a continuación imprime cuatro líneas:
+````kotlin
+println("I")
+println("know")
+println("Kotlin")
+println("well.")
+````
 
-</div>
+Resultado:
+````
+I
 
-- You may need to refer your learners to a particular lesson,
-task, or file. To achieve this, you can use the in-course links.
-Specify the path using the `[link_text](course://lesson1/task1/file1)` format.
+know
 
-- You can insert shortcuts in the task description.
-While **task.html/task.md** is open, right-click anywhere
-on the **Editor** tab and choose the **Insert shortcut** option
-from the context menu.
-For example: &shortcut:FileStructurePopup;.
+Kotlin
 
-- Insert the &percnt;`IDE_NAME`&percnt; macro,
-which will be replaced by the actual IDE name.
-For example, **%IDE_NAME%**.
+well.
+````
+Como puedes ver, todas las cadenas se imprimen sin comillas dobles .
 
-- Insert PSI elements, by using links like
-`[element_description](psi_element://link.to.element)`.
-To get such a link, right-click the class or method
-and select **Copy Reference**.
-Then press &shortcut:EditorPaste; to insert the link where appropriate.
-For example, a [link to the "contains" method](psi_element://java.lang.String#contains).
+También puedes imprimir una línea vacía:
+````kotlin
+println("Kotlin is a modern programming language.")
 
-- You can add link to file using **full path** like this:
-  `[file_link](file://lesson1/task1/file.txt)`.
+println() // prints an empty line
+
+println("It is used all over the world!")
+````
+Resultado:
+````
+Kotlin is a modern programming language.
+
+It is used all over the world!
+````
+La función `print` muestra un valor y coloca el cursor después de . Veamos el ejemplo siguiente. Este fragmento de código genera todas las cadenas en una sola línea:
+````kotlin
+print("I ")
+
+print("know ")
+
+print("Kotlin ")
+
+print("well.")
+````
+Resultado:
+````
+I know Kotlin well.
+````
+
+
+## Impresión de números y caracteres
+## Impresión de números y caracteres
+
+Con las funciones `println` y `print`, un programa puede imprimir no sólo cadenas sino también números y caracteres .
+
+Imprimamos dos códigos secretos:
+````kotlin
+print(108)   // prints a number
+print('c')   // prints a character
+print("Q")   // prints a string
+println('3') // prints a character that represents a digit
+
+print(22)
+print('E')
+print(8)
+println('1')
+````
+Resultado:
+````
+108cQ3
+22E81
+````
+Al igual que con las cadenas, no hay comillas.
+
+## El operador $
+En el lenguaje de programación Kotlin, el operador $ se utiliza a menudo en plantillas de cadenas de texto para insertar los valores de variables o expresiones directamente en una cadena.
+
+Ejemplos de uso:
+
+**Insertar el valor de una variable:**
+````kotlin
+val name = "Alice"
+println("Hello, $name!") // Output: Hello, Alice!
+````
+**Insertar el valor de una expresión:**
+````kotlin
+val a = 5
+val b = 10
+println("Sum of $a and $b is ${a + b}") // Output: Sum of 5 and 10 is 15
+````
+Tenga en cuenta que cuando desee insertar una expresión más compleja o acceder a las propiedades de un objeto, utilice llaves `{}` alrededor de la expresión.
+
+De esta forma, el operador $ en Kotlin permite la inserción cómoda y rápida de valores de variables y resultados de expresiones directamente en literales de cadena.
+
+# Conclusión
+
+En este tema, hemos cubierto dos funciones básicas para redirigir información a la salida estándar: printlny print. printlnimprime información seguida de una nueva línea, mientras que printlas imprime una tras otra. Recuerde, podemos usar estas funciones para imprimir no solo cadenas, sino también cualquier otro carácter.
+
